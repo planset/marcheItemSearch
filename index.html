@@ -16,10 +16,10 @@
 		<ons-page ng-controller="PageController">
 			<ons-toolbar class="index-toolbar">
 				<div class="left">食べマルシェ2014</div>
-				<div class="right"><input type="search" class="search-input" placeholder="検索" ng-model="query.name" name="name"></input></div>
+				<div class="right"><input type="search" class="search-input" placeholder="食べ物やお店の名前" ng-model="query.name" name="name"></input></div>
 			</ons-toolbar>
 			<ons-list>
-				<ons-list-item modifier="chevron" ng-repeat="item in items|filter:{$:query.name}" onclick="showShop()">
+				<ons-list-item modifier="chevron" ng-repeat="item in items|filter:{$:query.name}" ng-click="showShop(item);">
 					<div class="floatleft"><strong>{{item.name}}</strong></div>
 					<div class="floatright">{{item.company}}</div>
 				</ons-list-item>
@@ -33,8 +33,8 @@
 				<div class="center">店舗詳細</div>
 			</ons-toolbar>
 			<div class="shopdetail">
-				●●市場<br>
-				場所 : ○○ゾーン 99<br>
+        {{ shop.area }}<br>
+        場所 : {{ shop.place }}<br>
 				<p>品目1
 				品目2
 				</p>

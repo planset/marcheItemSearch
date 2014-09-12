@@ -1,8 +1,13 @@
 var module = angular.module('my-app', ['onsen']);
 module.controller('AppController', function($scope) {
+    $scope.shop = null;
 	$scope.query = {
 		name : ''
 		};
+    $scope.showShop = function(shop) {
+        $scope.shop = shop;
+        myNavigator.pushPage('shop.html', { animation : 'slide' } )
+    };
 	$scope.items = [
 		{'place': '駅マルシェ＜駅構内会場＞', 'num': '20', 'company': 'サクッと！ワカサギ', 'name': 'ワカサギ', 'area': '幌加内町'},
 		{'place': '駅マルシェ＜駅構内会場＞', 'num': '21', 'company': '株式会社藤井', 'name': '東川産ゆめぴりか', 'area': '旭川市'},
@@ -1464,6 +1469,3 @@ module.controller('PageController', function($scope) {
 	});
 });
 
-function showShop(shopName) {
-	myNavigator.pushPage('shop.html', { animation : 'slide' } )
-}
