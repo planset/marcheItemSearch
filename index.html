@@ -35,9 +35,7 @@
 			<div class="shopdetail">
         {{ shop.area }}<br>
         場所 : {{ shop.place }}<br>
-				<p>品目1
-				品目2
-				</p>
+        <p ng-repeat='product in shop.products'>{{ product }}</p>
 				自治体 : 旭川市
 			</div>
 		</ons-page>

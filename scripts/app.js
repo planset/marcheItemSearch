@@ -5,8 +5,20 @@ module.controller('AppController', function($scope) {
 		name : ''
 		};
     $scope.showShop = function(shop) {
+        if(shop.products === undefined){
+            shop.products = $scope.searchProductsByCompany(shop);
+        }
         $scope.shop = shop;
         myNavigator.pushPage('shop.html', { animation : 'slide' } )
+    };
+    $scope.searchProductsByCompany = function(shop) {
+        var products = [];
+        for(var i=0; i<$scope.items.length; i++){
+            if($scope.items[i].company == shop.company){
+                products.push($scope.items[i].name);
+            }
+        }
+        return products;
     };
 	$scope.items = [
 		{'place': '駅マルシェ＜駅構内会場＞', 'num': '20', 'company': 'サクッと！ワカサギ', 'name': 'ワカサギ', 'area': '幌加内町'},
